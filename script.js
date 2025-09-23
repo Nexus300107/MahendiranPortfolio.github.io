@@ -25,31 +25,24 @@ document.addEventListener('DOMContentLoaded', function () {
     // Default open About section
     showSection('#about');
 
-    // ---- Load Blogs Dynamically ----
-    const blogs = [
-        {
-            title: "Understanding Transformers in NLP",
-            desc: "Beginner-friendly intro to how transformers changed NLP forever.",
-            link: "https://www.linkedin.com/in/your-link"
-        },
-        {
-            title: "Bitcoin & AI: The Future?",
-            desc: "Exploring connections between blockchain and artificial intelligence.",
-            link: "https://www.linkedin.com/in/your-link"
-        }
-    ];
-
+    // ---- Load Blogs Dynamically from blogs.json ----
     const blogContainer = document.getElementById('blogs-container');
-    blogs.forEach(blog => {
-        const card = document.createElement('a');
-        card.classList.add('card', 'blog-card');
-        card.href = blog.link;
-        card.target = "_blank";
-        card.innerHTML = `
-            <h3>${blog.title}</h3>
-            <p>${blog.desc}</p>
-            <span class="card-footer">Read More &rarr;</span>
-        `;
-        blogContainer.appendChild(card);
-    });
+
+    fetch('blogs.json')
+        .then(response => response.json())
+        .then(blogs => {
+            blogs.forEach(blog => {
+                const card = document.createElement('a');
+                card.classList.add('card', 'blog-card');
+                card.href = blog.link;
+                card.target = "_blank";
+                card.innerHTML = `
+                    <h3>${blog.title}</h3>
+                    <p>${blog.description}</p>
+                    <span class="card-footer">Read More &rarr;</span>
+                `;
+                blogContainer.appendChild(card);
+            });
+        })
+        .catch(err => console.error("Failed to load blogs:", err));
 });
