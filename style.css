@@ -153,3 +153,25 @@ main > section.active { display:block; }
     .nav-right .resume-btn { margin-top:0; }
     main { margin-left:0; padding: 80px 8% 0 8%; }
 }
+
+/* same code as before until section styles ... */
+
+.skills {
+    margin-top: 25px;
+    background: #111;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #222;
+}
+.skills h3 {
+    margin-top: 0;
+    color: var(--accent-color);
+}
+.skills ul {
+    list-style: none;
+    padding: 0;
+}
+.skills ul li {
+    margin: 8px 0;
+    color: var(--text-muted);
+}
