@@ -15,6 +15,11 @@ body {
     padding: 0;
 }
 
+/* ADDED: Smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
 /* Starfield Background Animation */
 @keyframes move-twink-back {
     from {background-position:0 0;}
@@ -43,22 +48,34 @@ body {
 }
 
 
-/* Header and Navigation Bar */
+/* --- Header and Navigation Bar --- */
+/* The header is now a fixed sidebar on the left */
 header {
     position: fixed;
-    width: 100%;
+    width: 280px; /* CHANGED: Fixed width for the sidebar */
+    height: 100vh; /* CHANGED: Full height of the screen */
     top: 0;
     left: 0;
-    padding: 20px 5%;
-    background-color: rgba(0, 0, 0, 0.5);
+    padding: 40px 0; /* CHANGED: Vertical padding */
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly more opaque */
     backdrop-filter: blur(10px);
     z-index: 10;
+    box-sizing: border-box; /* ADDED: Ensures padding is included in the width/height */
+    border-right: 1px solid #222; /* ADDED: A nice separator line */
 }
 
+/* We now use a column layout */
 nav {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column; /* CHANGED: Stack items vertically */
+    align-items: center; /* CHANGED: Center items horizontally */
+    height: 100%;
+}
+
+.nav-left {
+    text-align: center; /* ADDED: Center the name and title */
+    width: 100%;
+    margin-bottom: 50px; /* ADDED: Space between name and links */
 }
 
 .nav-left h1 {
@@ -71,23 +88,38 @@ nav {
     color: var(--text-muted);
 }
 
+.nav-right {
+    display: flex; /* ADDED */
+    flex-direction: column; /* ADDED: Stack links vertically */
+    width: 100%; /* ADDED */
+    align-items: center; /* ADDED */
+}
+
 .nav-right a {
     color: var(--primary-color);
     text-decoration: none;
-    margin-left: 25px;
     font-size: 1em;
     transition: color 0.3s ease;
+    
+    /* CHANGED: Replaced margin-left with vertical margin and padding */
+    display: block;
+    width: 80%;
+    padding: 12px 0;
+    margin: 8px 0;
+    text-align: center;
+    border-radius: 5px;
 }
 
 .nav-right a:hover {
     color: var(--accent-color);
+    background-color: rgba(255, 255, 255, 0.05); /* ADDED: Hover effect for links */
 }
 
 .nav-right .resume-btn {
     border: 1px solid var(--accent-color);
-    padding: 8px 15px;
-    border-radius: 5px;
+    padding: 12px 0;
     color: var(--accent-color);
+    margin-top: 20px; /* ADDED: More space above the resume button */
 }
 
 .nav-right .resume-btn:hover {
@@ -95,9 +127,12 @@ nav {
     color: var(--background-color);
 }
 
-/* Main Content & Sections */
+/* --- Main Content & Sections --- */
+
+/* ADDED: This pushes the main content to the right to make room for the sidebar */
 main {
-    padding: 0 10%;
+    margin-left: 280px; /* This MUST match the header width */
+    padding: 0 5%; /* CHANGED */
 }
 
 section {
@@ -111,6 +146,50 @@ section h2 {
     text-align: center;
 }
 
+/* --- ADDED: Responsive Design for smaller screens --- */
+/* On screens smaller than 992px, it will switch back to a top bar */
+@media (max-width: 992px) {
+    header {
+        width: 100%;
+        height: auto;
+        padding: 20px 5%;
+        border-right: none;
+    }
+
+    nav {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .nav-left {
+        text-align: left;
+        margin-bottom: 0;
+    }
+
+    .nav-right {
+        flex-direction: row;
+    }
+
+    .nav-right a {
+        display: inline;
+        width: auto;
+        margin: 0 0 0 25px; /* Revert to original horizontal margin */
+        padding: 8px 15px;
+    }
+
+    .nav-right .resume-btn {
+        margin-top: 0;
+    }
+
+    main {
+        margin-left: 0; /* Remove the margin for the sidebar */
+        padding: 100px 10% 0 10%; /* Add padding to the top to avoid the top-bar */
+    }
+}
+
+
+/* --- (All other styles for Hero, Cards, etc. remain the same) --- */
+
 /* Hero Section */
 .hero {
     min-height: 100vh;
@@ -118,6 +197,9 @@ section h2 {
     justify-content: center;
     align-items: center;
     border-bottom: none;
+    /* ADDED: Ensure hero section is not offset by main padding */
+    padding-top: 0;
+    margin-top: -120px; 
 }
 
 .bitcoin-symbol {
@@ -133,7 +215,7 @@ section h2 {
     100% { transform: translateY(0px); }
 }
 
-/* Card Styles (For Blogs, Projects, Activity) */
+/* Card Styles */
 .card-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -195,5 +277,5 @@ section h2 {
 }
 .activity-card iframe, .activity-card img {
     width: 100%;
-    border: none;
+    border: none;
 }
