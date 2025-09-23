@@ -11,6 +11,7 @@
 </head>
 <body>
 
+    <!-- Background -->
     <div class="stars"></div>
     <div class="twinkling"></div>
     <div class="bitcoin-symbol">
@@ -19,6 +20,7 @@
         </svg>
     </div>
 
+    <!-- Sidebar / Navbar -->
     <header>
         <nav>
             <div class="nav-left">
@@ -35,51 +37,99 @@
         </nav>
     </header>
 
+    <!-- Main Content -->
     <main>
-        <section id="home" class="hero">
-            <!-- optional placeholder -->
-        </section>
-
+        <!-- About Section -->
         <section id="about" class="active">
             <h2>About Me</h2>
-            <p>Content coming soon...</p>
+            <p>Hello! I'm <strong>Mahendiran Adidravidar</strong>, a passionate AI Engineer and machine learning enthusiast.  
+               I specialize in building intelligent systems, working with deep learning models, and applying AI to solve real-world problems.</p>
+            <div class="skills">
+                <h3>Skills</h3>
+                <ul>
+                    <li>Python, TensorFlow, PyTorch</li>
+                    <li>Natural Language Processing</li>
+                    <li>Computer Vision</li>
+                    <li>Data Visualization & Dashboards</li>
+                    <li>Web Development (React, Flask)</li>
+                </ul>
+            </div>
         </section>
 
+        <!-- Blogs Section -->
         <section id="blogs">
             <h2>Blogs</h2>
             <div class="card-container">
                 <a href="#" class="card blog-card" target="_blank">
-                    <h3>My First Article Title</h3>
-                    <p>A short summary of the blog post will go here. Clicking this card will open the link in a new tab.</p>
+                    <h3>Understanding Transformers in NLP</h3>
+                    <p>A beginner-friendly guide to transformer models and why they revolutionized natural language processing.</p>
+                    <span class="card-footer">Read More &rarr;</span>
+                </a>
+                <a href="#" class="card blog-card" target="_blank">
+                    <h3>Bitcoin & AI: A Curious Intersection</h3>
+                    <p>Exploring how artificial intelligence and blockchain technology can work together in innovative ways.</p>
+                    <span class="card-footer">Read More &rarr;</span>
+                </a>
+                <a href="#" class="card blog-card" target="_blank">
+                    <h3>Visualizing Data with Python</h3>
+                    <p>From Matplotlib to Plotly, how to turn raw data into meaningful insights through clear visualization.</p>
                     <span class="card-footer">Read More &rarr;</span>
                 </a>
             </div>
         </section>
 
+        <!-- Projects Section -->
         <section id="projects">
             <h2>Projects</h2>
             <div class="card-container">
                 <a href="#" class="card project-card" target="_blank">
-                    <h3>Project Name</h3>
-                    <p>A brief description of the project and its purpose.</p>
+                    <h3>AI Chatbot</h3>
+                    <p>A conversational AI bot trained on custom datasets to provide instant, intelligent responses.</p>
                     <div class="tags">
                         <span>Python</span>
-                        <span>TensorFlow</span>
+                        <span>NLTK</span>
                         <span>Flask</span>
+                    </div>
+                </a>
+                <a href="#" class="card project-card" target="_blank">
+                    <h3>Stock Price Predictor</h3>
+                    <p>Time-series deep learning model that predicts stock trends using LSTM networks.</p>
+                    <div class="tags">
+                        <span>TensorFlow</span>
+                        <span>Pandas</span>
+                        <span>Matplotlib</span>
+                    </div>
+                </a>
+                <a href="#" class="card project-card" target="_blank">
+                    <h3>Image Classifier</h3>
+                    <p>A CNN-based model that classifies images into categories with 90%+ accuracy.</p>
+                    <div class="tags">
+                        <span>PyTorch</span>
+                        <span>OpenCV</span>
+                        <span>FastAPI</span>
                     </div>
                 </a>
             </div>
         </section>
 
+        <!-- Activity Section -->
         <section id="activity">
             <h2>My Activity Log</h2>
             <div class="card-container">
                 <div class="card activity-card">
                     <h3>Day 1: September 23, 2025</h3>
-                    <p>Today, I focused on fine-tuning a transformer model. I used Plotly to visualize the attention mechanism's scores across different layers.</p>
-                    <div class="visualization-area">
-                        <p>[Your Visualization Here]</p>
-                    </div>
+                    <p>Experimented with transformer models for text summarization. Visualized attention weights with Plotly.</p>
+                    <div class="visualization-area">[Visualization Placeholder]</div>
+                </div>
+                <div class="card activity-card">
+                    <h3>Day 2: September 24, 2025</h3>
+                    <p>Worked on training a CNN for image recognition. Achieved 88% accuracy after hyperparameter tuning.</p>
+                    <div class="visualization-area">[Training Graph Placeholder]</div>
+                </div>
+                <div class="card activity-card">
+                    <h3>Day 3: September 25, 2025</h3>
+                    <p>Deployed a small Flask app on Heroku to serve an AI model through an API endpoint.</p>
+                    <div class="visualization-area">[API Call Example]</div>
                 </div>
             </div>
         </section>
