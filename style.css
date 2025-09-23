@@ -1,222 +1,83 @@
-/* Basic Setup & Font */
-:root {
-    --primary-color: #ffffff;
-    --background-color: #000000;
-    --card-background: #111111;
-    --accent-color: #f7931a; /* Bitcoin Orange */
-    --text-muted: #aaaaaa;
-}
-
-body {
-    background-color: var(--background-color);
-    color: var(--primary-color);
-    font-family: 'Roboto Mono', monospace;
-    margin: 0;
-    padding: 0;
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-    -ms-overflow-style: none; /* For Internet Explorer and Edge */
-    scrollbar-width: none; /* For Firefox */
-}
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-body::-webkit-scrollbar {
-    display: none;
-}
-
-/* Starfield Background Animation */
-@keyframes move-twink-back {
-    from {background-position:0 0;}
-    to {background-position:-10000px 5000px;}
-}
-
-.stars, .twinkling {
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    width:100%;
-    height:100%;
-    display:block;
-    z-index: -2;
-}
-
-.stars {
-    background:#000 url(https://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
-}
-
-.twinkling {
-    background:transparent url(https://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
-    animation:move-twink-back 200s linear infinite;
-}
-
-
 /* Header and Navigation Bar */
 header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    padding: 20px 5%;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
-    z-index: 10;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 20px 5%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 10;
+    /* Use a grid to keep the sections separate */
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex;
+    justify-content: flex-end; /* Align links to the right */
+    align-items: center;
+}
+
+.nav-left {
+    grid-column: 1; /* Puts this element in the first column */
+}
+
+.nav-right {
+    grid-column: 2; /* Puts this element in the second column */
+    display: flex;
+    align-items: center;
 }
 
 .nav-left h1 {
-    margin: 0;
-    font-size: 1.5em;
+    margin: 0;
+    font-size: 1.5em;
 }
 
 .nav-left p {
-    margin: 0;
-    color: var(--text-muted);
+    margin: 0;
+    color: var(--text-muted);
 }
 
 .nav-right a {
-    color: var(--primary-color);
-    text-decoration: none;
-    margin-left: 25px;
-    font-size: 1em;
-    transition: color 0.3s ease;
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 1em;
+    transition: color 0.3s ease;
 }
 
 .nav-right a:hover {
-    color: var(--accent-color);
+    color: var(--accent-color);
 }
 
 .nav-right .resume-btn {
-    border: 1px solid var(--accent-color);
-    padding: 8px 15px;
-    border-radius: 5px;
-    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: var(--accent-color);
 }
 
 .nav-right .resume-btn:hover {
-    background-color: var(--accent-color);
-    color: var(--background-color);
+    background-color: var(--accent-color);
+    color: var(--background-color);
 }
 
-/* Main Content & Sections */
-main {
-    padding: 0 10%;
-}
-
-section {
-    padding: 120px 0;
-    border-bottom: 1px solid #222;
-    height: 100vh;
-    scroll-snap-align: start;
-}
-
-section h2 {
-    font-size: 2.5em;
-    margin-bottom: 40px;
-    text-align: center;
-}
-
-/* Hero Section */
-.hero {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: none;
-}
-
-.bitcoin-symbol {
-    width: 150px;
-    height: 150px;
-    color: var(--accent-color);
-    animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0px); }
-}
-
-/* Card Styles (For Blogs, Projects, Activity) */
-.card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.card {
-    background: var(--card-background);
-    border: 1px solid #222;
-    padding: 25px;
-    border-radius: 8px;
-    text-decoration: none;
-    color: var(--primary-color);
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    border-color: var(--accent-color);
-}
-
-.card h3 {
-    margin-top: 0;
-    color: var(--accent-color);
-}
-
-.card p {
-    color: var(--text-muted);
-}
-
-.blog-card .card-footer {
-    display: block;
-    margin-top: 20px;
-    font-weight: bold;
-}
-
-.project-card .tags {
-    margin-top: 20px;
-}
-
-.project-card .tags span {
-    background-color: #333;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.8em;
-    margin-right: 5px;
-}
-
-.activity-card .visualization-area {
-    margin-top: 20px;
-    background-color: #000;
-    border: 1px dashed #444;
-    min-height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #555;
-    padding: 10px;
-}
-.activity-card iframe, .activity-card img {
-    width: 100%;
-    border: none;
-}
-
-/* Media query for small screens (e.g., phones and tablets) */
+/* Add this media query to handle smaller screens */
 @media (max-width: 768px) {
-    .nav-right a {
-        margin-left: 10px;
-        font-size: 0.9em;
+    header {
+        grid-template-columns: 1fr; /* Stack elements on top of each other */
+        text-align: center;
     }
-
-    .nav-left h1 {
-        font-size: 1.2em;
+    .nav-right {
+        justify-content: center; /* Center the links */
+        margin-top: 15px;
+    }
+    .nav-left {
+        margin-bottom: 0;
+    }
+    .nav-left p {
+        display: none; /* Hide the sub-text to save space */
     }
 }
