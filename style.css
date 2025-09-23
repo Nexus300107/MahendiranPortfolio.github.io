@@ -204,16 +204,23 @@ section h2 {
 }
 
 .bitcoin-symbol {
-    width: 150px;
-    height: 150px;
+    position: fixed; /* Keeps it fixed in the viewport */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers the element */
+    width: 30vw; /* Use viewport width for responsive sizing */
+    max-width: 400px; /* Set a max size */
+    height: auto;
     color: var(--accent-color);
-    animation: float 6s ease-in-out infinite;
+    opacity: 0.1; /* Make it a subtle background element */
+    z-index: -1; /* Place it behind the main content but in front of stars */
+    animation: float 8s ease-in-out infinite;
 }
 
 @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0px); }
+    0% { transform: translate(-50%, -50%) translateY(0px); }
+    50% { transform: translate(-50%, -50%) translateY(-25px); }
+    100% { transform: translate(-50%, -50%) translateY(0px); }
 }
 
 /* Card Styles */
