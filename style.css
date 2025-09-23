@@ -279,3 +279,10 @@ section h2 {
     width: 100%;
     border: none;
 }
+main > section {
+    display: none;
+}
+
+main > section.active {
+    display: block;
+}
