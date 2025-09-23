@@ -32,7 +32,7 @@
                 <a href="#blogs">Blogs</a>
                 <a href="#projects">Projects</a>
                 <a href="#activity">My Activity</a>
-                <a href="/resume.pdf" class="resume-btn" target="_blank">Resume</a>
+                <a href="#resume">Resume</a>
             </div>
         </nav>
     </header>
@@ -42,6 +42,13 @@
         <!-- About Section -->
         <section id="about" class="active">
             <h2>About Me</h2>
+
+            <!-- Future Chatbot Space -->
+            <div class="chatbot-placeholder">
+                <p>[Chatbot will appear here in future 🚀]</p>
+            </div>
+
+            <!-- Static Info -->
             <p>Hello! I'm <strong>Mahendiran Adidravidar</strong>, a passionate AI Engineer and machine learning enthusiast.  
                I specialize in building intelligent systems, working with deep learning models, and applying AI to solve real-world problems.</p>
             <div class="skills">
@@ -59,22 +66,8 @@
         <!-- Blogs Section -->
         <section id="blogs">
             <h2>Blogs</h2>
-            <div class="card-container">
-                <a href="#" class="card blog-card" target="_blank">
-                    <h3>Understanding Transformers in NLP</h3>
-                    <p>A beginner-friendly guide to transformer models and why they revolutionized natural language processing.</p>
-                    <span class="card-footer">Read More &rarr;</span>
-                </a>
-                <a href="#" class="card blog-card" target="_blank">
-                    <h3>Bitcoin & AI: A Curious Intersection</h3>
-                    <p>Exploring how artificial intelligence and blockchain technology can work together in innovative ways.</p>
-                    <span class="card-footer">Read More &rarr;</span>
-                </a>
-                <a href="#" class="card blog-card" target="_blank">
-                    <h3>Visualizing Data with Python</h3>
-                    <p>From Matplotlib to Plotly, how to turn raw data into meaningful insights through clear visualization.</p>
-                    <span class="card-footer">Read More &rarr;</span>
-                </a>
+            <div class="card-container" id="blogs-container">
+                <!-- Blogs will load here dynamically -->
             </div>
         </section>
 
@@ -126,11 +119,28 @@
                     <p>Worked on training a CNN for image recognition. Achieved 88% accuracy after hyperparameter tuning.</p>
                     <div class="visualization-area">[Training Graph Placeholder]</div>
                 </div>
-                <div class="card activity-card">
-                    <h3>Day 3: September 25, 2025</h3>
-                    <p>Deployed a small Flask app on Heroku to serve an AI model through an API endpoint.</p>
-                    <div class="visualization-area">[API Call Example]</div>
-                </div>
+            </div>
+        </section>
+
+        <!-- Resume Section -->
+        <section id="resume">
+            <h2>Resume</h2>
+
+            <!-- Video Resume -->
+            <div class="video-resume">
+                <h3>Video Resume</h3>
+                <iframe width="100%" height="400" src="https://www.youtube.com/embed/your-video-id" title="Video Resume" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <!-- Inline PDF Resume -->
+            <div class="pdf-resume">
+                <h3>My Resume</h3>
+                <iframe src="/resume.pdf" width="100%" height="600"></iframe>
+            </div>
+
+            <!-- Download Button -->
+            <div class="download-resume">
+                <a href="/resume.pdf" download class="resume-btn">Download Resume</a>
             </div>
         </section>
     </main>
