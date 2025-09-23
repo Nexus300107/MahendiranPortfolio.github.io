@@ -1,4 +1,3 @@
-/* Basic Setup & Font */
 :root {
     --primary-color: #ffffff;
     --background-color: #000000;
@@ -15,12 +14,11 @@ body {
     padding: 0;
 }
 
-/* ADDED: Smooth scrolling for anchor links */
 html {
     scroll-behavior: smooth;
 }
 
-/* Starfield Background Animation */
+/* Starfield */
 @keyframes move-twink-back {
     from {background-position:0 0;}
     to {background-position:-10000px 5000px;}
@@ -28,12 +26,8 @@ html {
 
 .stars, .twinkling {
     position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    width:100%;
-    height:100%;
+    top:0; left:0; right:0; bottom:0;
+    width:100%; height:100%;
     display:block;
     z-index: -2;
 }
@@ -47,35 +41,53 @@ html {
     animation:move-twink-back 200s linear infinite;
 }
 
-
-/* --- Header and Navigation Bar --- */
-/* The header is now a fixed sidebar on the left */
-header {
+/* Bitcoin Background */
+.bitcoin-symbol {
     position: fixed;
-    width: 280px; /* CHANGED: Fixed width for the sidebar */
-    height: 100vh; /* CHANGED: Full height of the screen */
-    top: 0;
-    left: 0;
-    padding: 40px 0; /* CHANGED: Vertical padding */
-    background-color: rgba(0, 0, 0, 0.7); /* Slightly more opaque */
-    backdrop-filter: blur(10px);
-    z-index: 10;
-    box-sizing: border-box; /* ADDED: Ensures padding is included in the width/height */
-    border-right: 1px solid #222; /* ADDED: A nice separator line */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30vw;
+    max-width: 400px;
+    height: auto;
+    color: var(--accent-color);
+    opacity: 0.08;
+    z-index: 0;
+    animation: float 8s ease-in-out infinite;
+    pointer-events: none;
 }
 
-/* We now use a column layout */
+@keyframes float {
+    0% { transform: translate(-50%, -50%) translateY(0px); }
+    50% { transform: translate(-50%, -50%) translateY(-25px); }
+    100% { transform: translate(-50%, -50%) translateY(0px); }
+}
+
+/* Sidebar Navigation */
+header {
+    position: fixed;
+    width: 280px;
+    height: 100vh;
+    top: 0; left: 0;
+    padding: 40px 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    z-index: 10;
+    border-right: 1px solid #222;
+    box-sizing: border-box;
+}
+
 nav {
     display: flex;
-    flex-direction: column; /* CHANGED: Stack items vertically */
-    align-items: center; /* CHANGED: Center items horizontally */
+    flex-direction: column;
+    align-items: center;
     height: 100%;
 }
 
 .nav-left {
-    text-align: center; /* ADDED: Center the name and title */
+    text-align: center;
     width: 100%;
-    margin-bottom: 50px; /* ADDED: Space between name and links */
+    margin-bottom: 50px;
 }
 
 .nav-left h1 {
@@ -89,10 +101,10 @@ nav {
 }
 
 .nav-right {
-    display: flex; /* ADDED */
-    flex-direction: column; /* ADDED: Stack links vertically */
-    width: 100%; /* ADDED */
-    align-items: center; /* ADDED */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
 }
 
 .nav-right a {
@@ -100,8 +112,6 @@ nav {
     text-decoration: none;
     font-size: 1em;
     transition: color 0.3s ease;
-    
-    /* CHANGED: Replaced margin-left with vertical margin and padding */
     display: block;
     width: 80%;
     padding: 12px 0;
@@ -120,7 +130,7 @@ nav {
     border: 1px solid var(--accent-color);
     padding: 12px 0;
     color: var(--accent-color);
-    margin-top: 20px; /* ADDED: More space above the resume button */
+    margin-top: 20px;
 }
 
 .nav-right .resume-btn:hover {
@@ -128,12 +138,10 @@ nav {
     color: var(--background-color);
 }
 
-/* --- Main Content & Sections --- */
-
-/* ADDED: This pushes the main content to the right to make room for the sidebar */
+/* Main */
 main {
-    margin-left: 280px; /* This MUST match the header width */
-    padding: 0 5%; /* CHANGED */
+    margin-left: 280px;
+    padding: 0 5%;
 }
 
 section {
@@ -147,83 +155,17 @@ section h2 {
     text-align: center;
 }
 
-/* --- ADDED: Responsive Design for smaller screens --- */
-/* On screens smaller than 992px, it will switch back to a top bar */
-@media (max-width: 992px) {
-    header {
-        width: 100%;
-        height: auto;
-        padding: 20px 5%;
-        border-right: none;
-    }
-
-    nav {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .nav-left {
-        text-align: left;
-        margin-bottom: 0;
-    }
-
-    .nav-right {
-        flex-direction: row;
-    }
-
-    .nav-right a {
-        display: inline;
-        width: auto;
-        margin: 0 0 0 25px; /* Revert to original horizontal margin */
-        padding: 8px 15px;
-    }
-
-    .nav-right .resume-btn {
-        margin-top: 0;
-    }
-
-    main {
-        margin-left: 0; /* Remove the margin for the sidebar */
-        padding: 100px 10% 0 10%; /* Add padding to the top to avoid the top-bar */
-    }
-}
-
-
-/* --- (All other styles for Hero, Cards, etc. remain the same) --- */
-
-/* Hero Section */
 .hero {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     border-bottom: none;
-    /* ADDED: Ensure hero section is not offset by main padding */
     padding-top: 0;
     margin-top: -120px; 
 }
 
-.bitcoin-symbol {
-    position: fixed; /* Keeps it fixed in the viewport */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Centers the element */
-    width: 30vw; /* Use viewport width for responsive sizing */
-    max-width: 400px; /* Set a max size */
-    height: auto;
-    color: var(--accent-color);
-    opacity: 0.1; /* Make it a subtle background element */
-    z-index: -1; /* Place it behind the main content but in front of stars */
-    animation: float 8s ease-in-out infinite;
-}
-
-@keyframes float {
-    0% { transform: translate(-50%, -50%) translateY(0px); }
-    50% { transform: translate(-50%, -50%) translateY(-25px); }
-    100% { transform: translate(-50%, -50%) translateY(0px); }
-}
-
-/* Card Styles */
+/* Cards */
 .card-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -283,14 +225,50 @@ section h2 {
     color: #555;
     padding: 10px;
 }
+
 .activity-card iframe, .activity-card img {
     width: 100%;
     border: none;
 }
+
+/* Section visibility */
 main > section {
     display: none;
 }
-
 main > section.active {
     display: block;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    header {
+        width: 100%;
+        height: auto;
+        padding: 20px 5%;
+        border-right: none;
+    }
+    nav {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .nav-left {
+        text-align: left;
+        margin-bottom: 0;
+    }
+    .nav-right {
+        flex-direction: row;
+    }
+    .nav-right a {
+        display: inline;
+        width: auto;
+        margin: 0 0 0 25px;
+        padding: 8px 15px;
+    }
+    .nav-right .resume-btn {
+        margin-top: 0;
+    }
+    main {
+        margin-left: 0;
+        padding: 100px 10% 0 10%;
+    }
 }
