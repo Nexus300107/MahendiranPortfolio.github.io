@@ -46,3 +46,31 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(err => console.error("Failed to load blogs:", err));
 });
+
+// Load and render activities
+fetch("activity.json")
+  .then(response => response.json())
+  .then(data => {
+    const container = document.getElementById("activity-list");
+
+    // Get today's date in format: 24 September 2025
+    const today = new Date();
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    const currentDate = today.toLocaleDateString('en-GB', options);
+
+    data.forEach(activity => {
+      const div = document.createElement("div");
+      div.classList.add("activity-card");
+
+      div.innerHTML = `
+        <h3>${activity.title}</h3>
+        <p>${activity.description}</p>
+        <p><strong>Date:</strong> ${currentDate}</p>
+        <a href="${activity.link}" target="_blank">Read More</a>
+      `;
+
+      container.appendChild(div);
+    });
+  })
+  .catch(error => console.error("Error loading activity.json:", error));
+
