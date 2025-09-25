@@ -222,6 +222,21 @@ main {
   font-size: 0.85rem;
 }
 
+/* Card Links */
+.card .read-more {
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+.card .read-more a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+.card .read-more a:hover {
+  text-decoration: underline;
+}
+
+
 /* Resume */
 .resume-area iframe {
   width: 100%;
