@@ -1,76 +1,135 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const navLinks = document.querySelectorAll('header a[href^="#"]');
-    const sections = document.querySelectorAll('main > section');
+// script.js — improved interactions
 
-    function showSection(targetId) {
-        const id = targetId.substring(1);
-        sections.forEach(section => section.classList.remove('active'));
-        navLinks.forEach(link => link.classList.remove('active'));
+document.addEventListener('DOMContentLoaded', () => {
+  // Elements
+  const menu = document.getElementById('primary-menu');
+  const mobileToggle = document.getElementById('mobile-nav-toggle');
+  const themeToggle = document.getElementById('theme-toggle');
+  const yearEl = document.getElementById('year');
 
-        const targetSection = document.getElementById(id);
-        if (targetSection) targetSection.classList.add('active');
+  // Year in footer
+  yearEl.textContent = new Date().getFullYear();
 
-        const targetLink = document.querySelector(`header a[href="${targetId}"]`);
-        if (targetLink) targetLink.classList.add('active');
-    }
+  // Mobile nav toggle
+  mobileToggle.addEventListener('click', () => {
+    const expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+    mobileToggle.setAttribute('aria-expanded', String(!expanded));
+    menu.style.display = expanded ? 'none' : 'flex';
+    menu.setAttribute('aria-expanded', String(!expanded));
+  });
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', function (event) {
-            event.preventDefault();
-            const targetId = this.getAttribute('href');
-            showSection(targetId);
-        });
+  // Theme toggle with localStorage
+  const applyTheme = (isLight) => {
+    if (isLight) document.documentElement.classList.add('light');
+    else document.documentElement.classList.remove('light');
+    themeToggle.setAttribute('aria-pressed', String(isLight));
+  };
+
+  const saved = localStorage.getItem('site-theme');
+  if (saved) {
+    applyTheme(saved === 'light');
+  } else {
+    const prefersLight =
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: light)').matches;
+    applyTheme(prefersLight);
+  }
+
+  themeToggle.addEventListener('click', () => {
+    const isLight = document.documentElement.classList.toggle('light');
+    localStorage.setItem('site-theme', isLight ? 'light' : 'dark');
+    applyTheme(isLight);
+  });
+
+  // Smooth in-page navigation
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href');
+      if (href === '#') return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        // Close mobile menu if open
+        if (window.innerWidth <= 900 && menu.style.display === 'flex') {
+          menu.style.display = 'none';
+          mobileToggle.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+  });
+
+  // Load blogs.json
+  fetch('blogs.json')
+    .then((r) => r.json())
+    .then((data) => {
+      const container = document.getElementById('blogs-container');
+      container.innerHTML = '';
+      data.forEach((b) => {
+        const a = document.createElement('a');
+        a.className = 'card';
+        a.href = b.link || '#';
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.innerHTML = `<h3>${escapeHtml(b.title)}</h3><p>${escapeHtml(
+          b.description
+        )}</p>`;
+        container.appendChild(a);
+      });
+    })
+    .catch((err) => {
+      console.warn('Could not load blogs.json', err);
     });
 
-    // Default open About section
-    showSection('#about');
+  // Load activity.json
+  fetch('activity.json')
+    .then((r) => r.json())
+    .then((data) => {
+      const container = document.getElementById('activity-list');
+      container.innerHTML = '';
+      data.forEach((item) => {
+        const div = document.createElement('div');
+        div.className = 'card';
+        const date =
+          item.date ||
+          new Date().toLocaleDateString('en-GB', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+          });
+        div.innerHTML = `<h3>${escapeHtml(item.title)}</h3>
+          <p>${escapeHtml(item.description)}</p>
+          <p class="muted"><strong>Date:</strong> ${date}</p>`;
+        if (item.link) {
+          div.innerHTML += `<p><a href="${item.link}" target="_blank" rel="noopener">Read more →</a></p>`;
+        }
+        container.appendChild(div);
+      });
+    })
+    .catch((err) => console.warn('Could not load activity.json', err));
 
-    // ---- Load Blogs Dynamically from blogs.json ----
-    const blogContainer = document.getElementById('blogs-container');
-
-    fetch('blogs.json')
-        .then(response => response.json())
-        .then(blogs => {
-            blogs.forEach(blog => {
-                const card = document.createElement('a');
-                card.classList.add('card', 'blog-card');
-                card.href = blog.link;
-                card.target = "_blank";
-                card.innerHTML = `
-                    <h3>${blog.title}</h3>
-                    <p>${blog.description}</p>
-                    <span class="card-footer">Read More &rarr;</span>
-                `;
-                blogContainer.appendChild(card);
-            });
+  // Contact: copy email button
+  const copyBtn = document.getElementById('contact-copy');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard
+        ?.writeText('your.email@example.com')
+        .then(() => {
+          copyBtn.textContent = 'Copied ✓';
+          setTimeout(() => (copyBtn.textContent = 'Copy email'), 2000);
         })
-        .catch(err => console.error("Failed to load blogs:", err));
-});
-
-// Load and render activities
-fetch("activity.json")
-  .then(response => response.json())
-  .then(data => {
-    const container = document.getElementById("activity-list");
-
-    // Get today's date in format: 24 September 2025
-    const today = new Date();
-    const options = { day: 'numeric', month: 'long', year: 'numeric' };
-    const currentDate = today.toLocaleDateString('en-GB', options);
-
-    data.forEach(activity => {
-      const div = document.createElement("div");
-      div.classList.add("activity-card");
-
-      div.innerHTML = `
-        <h3>${activity.title}</h3>
-        <p>${activity.description}</p>
-        <p><strong>Date:</strong> ${currentDate}</p>
-        <a href="${activity.link}" target="_blank">Read More</a>
-      `;
-
-      container.appendChild(div);
+        .catch(() =>
+          alert('Copy failed — please select & copy manually')
+        );
     });
-  })
-  .catch(error => console.error("Error loading activity.json:", error));
+  }
 
+  // Utility function
+  function escapeHtml(s) {
+    if (!s) return '';
+    return s.replace(/[&<>"]/g, (c) => {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+});
