@@ -38,24 +38,24 @@
     <nav class="primary-nav" role="navigation" aria-label="Main Navigation">
       <button id="mobile-nav-toggle" aria-expanded="false" aria-controls="primary-menu">☰</button>
       <ul id="primary-menu" class="menu" aria-expanded="false">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#blogs">Blogs</a></li>
-        <li><a href="#activity">Activity</a></li>
-        <li><a href="#resume">Resume</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#" class="nav-link active" data-section="about">About</a></li>
+        <li><a href="#" class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#" class="nav-link" data-section="blogs">Blogs</a></li>
+        <li><a href="#" class="nav-link" data-section="activity">Activity</a></li>
+        <li><a href="#" class="nav-link" data-section="resume">Resume</a></li>
+        <li><a href="#" class="nav-link" data-section="contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <main id="main">
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero section">
       <div class="hero-content">
         <h2>Hi — I'm <strong>Mahendiran</strong></h2>
         <p class="lead">AI Engineer focused on NLP, Computer Vision and building production-ready ML systems.</p>
         <p class="cta-row">
-          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn primary nav-link" data-section="projects" href="#">View Projects</a>
           <a class="btn ghost" href="resume.txt" download>Download Resume</a>
         </p>
       </div>
@@ -72,7 +72,7 @@
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="section">
+    <section id="about" class="section visible">
       <h2>About Me</h2>
       <div class="split">
         <div>
