@@ -86,13 +86,19 @@ document.addEventListener('DOMContentLoaded', () => {
       const container = document.getElementById('blogs-container');
       container.innerHTML = '';
       data.forEach((b) => {
-        const a = document.createElement('a');
-        a.className = 'card';
-        a.href = b.link || '#';
-        a.target = '_blank';
-        a.rel = 'noopener';
-        a.innerHTML = `<h3>${escapeHtml(b.title)}</h3><p>${escapeHtml(b.description)}</p>`;
-        container.appendChild(a);
+        // Create an <article> for the card so we can have a link inside it
+        const article = document.createElement('article');
+        article.className = 'card';
+        
+        // Set the main content
+        article.innerHTML = `<h3>${escapeHtml(b.title)}</h3><p>${escapeHtml(b.description)}</p>`;
+        
+        // If a link exists in the JSON, add the "Read more" link
+        if (b.link) {
+          article.innerHTML += `<p class="read-more"><a href="${b.link}" target="_blank" rel="noopener">Read more →</a></p>`;
+        }
+        
+        container.appendChild(article);
       });
     })
     .catch((err) => console.warn('Could not load blogs.json', err));
@@ -113,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <p>${escapeHtml(item.description)}</p>
           <p class="muted"><strong>Date:</strong> ${date}</p>`;
         if (item.link) {
-          div.innerHTML += `<p><a href="${item.link}" target="_blank" rel="noopener">Read more →</a></p>`;
+          div.innerHTML += `<p class="read-more"><a href="${item.link}" target="_blank" rel="noopener">Read more →</a></p>`;
         }
         container.appendChild(div);
       });
