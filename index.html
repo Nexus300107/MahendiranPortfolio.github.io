@@ -1,158 +1,183 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahendiran Adidravidar - AI Engineer</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Mahendiran Adidravidar — AI Engineer. Portfolio, blogs, projects and resume.">
+  <title>Mahendiran Adidravidar — AI Engineer</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mahendiran Adidravidar — AI Engineer">
+  <meta property="og:description" content="Portfolio website showcasing projects, blogs, and activities.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon (inline SVG so no external file needed) -->
+  <link rel="icon" href="data:image/svg+xml;utf8,
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+      <rect width='100' height='100' fill='%23f7931a'/>
+      <text x='50' y='60' font-size='50' text-anchor='middle' fill='%23000'
+        font-family='Arial' font-weight='700'>M</text>
+    </svg>">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Background -->
-    <div class="stars"></div>
-    <div class="twinkling"></div>
-    <div class="bitcoin-symbol">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor">
-            <path d="M16 0C7.177 0 0 7.177 0 16s7.177 16 16 16 16-7.177 16-16S24.823 0 16 0zm.406 24.672h-2.938v2.406h-1.953v-2.406H8.78v-1.828h2.735v-1.594H8.78v-1.859h2.735v-1.516H8.78v-1.828h2.735v-2.531H8.78v-1.828h2.735V7.328h1.953v2.406h2.938c2.672 0 4.672 1.156 4.672 3.469 0 1.469-.75 2.484-2.016 3.078 1.516.469 2.391 1.422 2.391 3.156 0 2.406-1.922 4.234-5.047 4.234zm-.375-9.141h-2.563v2.063h2.594c1.016 0 1.625-.469 1.625-1.109 0-.656-.547-.953-1.656-.953zm.188 4.031h-2.75v2.203h2.797c1.125 0 1.781-.5 1.781-1.141 0-.719-.656-1.063-1.828-1.063z"/>
-        </svg>
+  <header class="site-header" role="banner">
+    <div class="brand">
+      <h1>Mahendiran Adidravidar</h1>
+      <p class="role">AI Engineer</p>
     </div>
 
-    <!-- Sidebar / Navbar -->
-    <header>
-        <nav>
-            <div class="nav-left">
-                <h1>Mahendiran Adidravidar</h1>
-                <p>AI Engineer</p>
-            </div>
-            <div class="nav-right">
-                <a href="#about">About Me</a>
-                <a href="#blogs">Blogs</a>
-                <a href="#projects">Projects</a>
-                <a href="#activity">My Activity</a>
-                <a href="#resume">Resume</a>
-            </div>
-        </nav>
-    </header>
+    <button id="theme-toggle" aria-pressed="false" aria-label="Toggle theme">🌗</button>
 
-    <!-- Main Content -->
-    <main>
-        <section id="activities">
-  <h2>My Daily Activities</h2>
-  <div id="activity-list"></div>
-</section>
+    <nav class="primary-nav" role="navigation" aria-label="Main Navigation">
+      <button id="mobile-nav-toggle" aria-expanded="false" aria-controls="primary-menu">☰</button>
+      <ul id="primary-menu" class="menu" aria-expanded="false">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#blogs">Blogs</a></li>
+        <li><a href="#activity">Activity</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-        <!-- About Section -->
-        <section id="about" class="active">
-            <h2>About Me</h2>
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Hi — I'm <strong>Mahendiran</strong></h2>
+        <p class="lead">AI Engineer focused on NLP, Computer Vision and building production-ready ML systems.</p>
+        <p class="cta-row">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn ghost" href="resume.txt" download>Download Resume</a>
+        </p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg width="280" height="280" viewBox="0 0 32 32" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="15" stroke="#f7931a"
+            stroke-opacity="0.08" stroke-width="2" />
+          <text x="50%" y="52%" text-anchor="middle"
+            dominant-baseline="middle" font-size="9"
+            fill="#f7931a" opacity="0.08">AI</text>
+        </svg>
+      </div>
+    </section>
 
-            <!-- Future Chatbot Space -->
-            <div class="chatbot-placeholder">
-                <p>[Chatbot will appear here in future 🚀]</p>
-            </div>
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <h2>About Me</h2>
+      <div class="split">
+        <div>
+          <p>Hello! I'm <strong>Mahendiran Adidravidar</strong>, an AI Engineer building models, pipelines, and dashboards that translate data into decisions. I enjoy productionizing ML, visualization, and open-source projects.</p>
 
-            <!-- Static Info -->
-            <p>Hello! I'm <strong>Mahendiran Adidravidar</strong>, a passionate AI Engineer and machine learning enthusiast.  
-               I specialize in building intelligent systems, working with deep learning models, and applying AI to solve real-world problems.</p>
-            <div class="skills">
-                <h3>Skills</h3>
-                <ul>
-                    <li>Numpy ,Pandas, Matplotlib, Seaborn</li>
-                    <li>Maths: Linear Algebra, Calculus, Satistics, Probability</li>
-                    <li>Data Visualization & Dashboards</li>
-                    <li></li>
-                    <li></li>
-                </ul>
-            </div>
-        </section>
+          <div class="skills">
+            <h3>Skills</h3>
+            <ul>
+              <li>Python · TensorFlow · PyTorch</li>
+              <li>NLP · Transformers · Sequence Models</li>
+              <li>Computer Vision · CNNs</li>
+              <li>Web: React · Flask · FastAPI</li>
+              <li>Data viz & dashboards (Plotly, Matplotlib)</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="chatbot-placeholder" aria-hidden="false">
+            <p>[Chatbot space — coming soon 🚀]</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!-- Blogs Section -->
-        <section id="blogs">
-            <h2>Blogs</h2>
-            <div class="card-container" id="blogs-container">
-                <!-- Blogs will load here dynamically -->
-            </div>
-        </section>
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <div class="card-grid" id="projects-grid">
+        <article class="card project-card">
+          <h3>AI Chatbot</h3>
+          <p>Conversational AI trained on custom datasets and exposed via a Flask API.</p>
+          <p class="tags"><span>Python</span><span>Flask</span><span>NLProc</span></p>
+        </article>
 
-        <!-- Projects Section -->
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="card-container">
-                <a href="#" class="card project-card" target="_blank">
-                    <h3>AI Chatbot</h3>
-                    <p>A conversational AI bot trained on custom datasets to provide instant, intelligent responses.</p>
-                    <div class="tags">
-                        <span>Python</span>
-                        <span>NLTK</span>
-                        <span>Flask</span>
-                    </div>
-                </a>
-                <a href="#" class="card project-card" target="_blank">
-                    <h3>Stock Price Predictor</h3>
-                    <p>Time-series deep learning model that predicts stock trends using LSTM networks.</p>
-                    <div class="tags">
-                        <span>TensorFlow</span>
-                        <span>Pandas</span>
-                        <span>Matplotlib</span>
-                    </div>
-                </a>
-                <a href="#" class="card project-card" target="_blank">
-                    <h3>Image Classifier</h3>
-                    <p>A CNN-based model that classifies images into categories with 90%+ accuracy.</p>
-                    <div class="tags">
-                        <span>PyTorch</span>
-                        <span>OpenCV</span>
-                        <span>FastAPI</span>
-                    </div>
-                </a>
-            </div>
-        </section>
+        <article class="card project-card">
+          <h3>Stock Price Predictor</h3>
+          <p>Time-series model using LSTM for trend forecasting with automated retraining.</p>
+          <p class="tags"><span>TensorFlow</span><span>Pandas</span><span>LSTM</span></p>
+        </article>
 
-        <!-- Activity Section -->
-        <section id="activity">
-            <h2>My Activity Log</h2>
-            <div class="card-container">
-                <div class="card activity-card">
-                    <h3>Day 1: September 23, 2025</h3>
-                    <p>Experimented with transformer models for text summarization. Visualized attention weights with Plotly.</p>
-                    <div class="visualization-area">[Visualization Placeholder]</div>
-                </div>
-                <div class="card activity-card">
-                    <h3>Day 2: September 24, 2025</h3>
-                    <p>Worked on training a CNN for image recognition. Achieved 88% accuracy after hyperparameter tuning.</p>
-                    <div class="visualization-area">[Training Graph Placeholder]</div>
-                </div>
-            </div>
-        </section>
+        <article class="card project-card">
+          <h3>Image Classifier</h3>
+          <p>CNN pipeline for image classification with 90%+ accuracy and FastAPI serving.</p>
+          <p class="tags"><span>PyTorch</span><span>OpenCV</span><span>FastAPI</span></p>
+        </article>
+      </div>
+    </section>
 
-        <!-- Resume Section -->
-        <section id="resume">
-            <h2>Resume</h2>
+    <!-- BLOGS -->
+    <section id="blogs" class="section">
+      <h2>Blogs</h2>
+      <div id="blogs-container" class="card-grid" aria-live="polite">
+        <!-- populated by script -->
+      </div>
+    </section>
 
-            <!-- Video Resume -->
-            <div class="video-resume">
-                <h3>Video Resume</h3>
-                <iframe width="100%" height="400" src="https://www.youtube.com/embed/your-video-id" title="Video Resume" frameborder="0" allowfullscreen></iframe>
-            </div>
+    <!-- ACTIVITY -->
+    <section id="activity" class="section">
+      <h2>Activity</h2>
+      <div id="activity-list" class="card-grid">
+        <!-- populated by script -->
+      </div>
+    </section>
 
-            <!-- Inline PDF Resume -->
-            <div class="pdf-resume">
-                <h3>My Resume</h3>
-                <iframe src="/resume.pdf" width="100%" height="600"></iframe>
-            </div>
+    <!-- RESUME -->
+    <section id="resume" class="section">
+      <h2>Resume</h2>
+      <p>You can watch my video resume or download the text resume below.</p>
+      <div class="resume-area">
+        <iframe title="Video Resume" src="https://www.youtube.com/embed/your-video-id" allowfullscreen></iframe>
+        <div class="download-center">
+          <a class="btn primary" href="resume.txt" download>Download Resume (TXT)</a>
+        </div>
+      </div>
+    </section>
 
-            <!-- Download Button -->
-            <div class="download-resume">
-                <a href="/resume.pdf" download class="resume-btn">Download Resume</a>
-            </div>
-        </section>
-    </main>
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p>Want to collaborate? Send me a message — I'll try to respond within a few days.</p>
 
-    <script src="script.js"></script>
+      <form id="contact-form" class="contact-form" action="mailto:your.email@example.com" method="GET" novalidate>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required>
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="body" rows="5" required></textarea>
+
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Send (opens email)</button>
+          <button type="button" id="contact-copy" class="btn ghost">Copy email</button>
+        </div>
+        <p class="note">If your mail client doesn't open, please copy the email address.</p>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Mahendiran Adidravidar · <a href="https://github.com/nexus300107" target="_blank" rel="noopener">GitHub</a></p>
+  </footer>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
-
-
-
