@@ -6,12 +6,10 @@
   <meta name="description" content="Mahendiran Adidravidar — AI Engineer. Portfolio, blogs, projects and resume.">
   <title>Mahendiran Adidravidar — AI Engineer</title>
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Mahendiran Adidravidar — AI Engineer">
   <meta property="og:description" content="Portfolio website showcasing projects, blogs, and activities.">
   <meta property="og:type" content="website">
 
-  <!-- Favicon (inline SVG so no external file needed) -->
   <link rel="icon" href="data:image/svg+xml;utf8,
     <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
       <rect width='100' height='100' fill='%23f7931a'/>
@@ -25,6 +23,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="background-symbol" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor">
+      <path d="M21.905,12.953c0.479-2.063-0.799-3.488-2.663-4.304l0.499-1.996l-1.115-0.279l-0.487,1.947c-0.344-0.086-0.694-0.169-1.041-0.249l0.488-1.953l-1.115-0.279l-0.498,1.996c-0.279-0.062-0.552-0.125-0.824-0.188l0.003-0.012l-1.543-0.385l-0.401,1.604c0,0,0.809,0.188,0.792,0.201c0.493,0.122,0.553,0.43,0.536,0.612l-0.536,2.146c0.016,0.005-0.03,0.016-0.046,0.02c-0.493-0.122-0.553-0.43-0.536-0.612c-0.018-0.07-0.176-0.155-0.413-0.206l-0.871,3.485c0.07,0.018,0.168,0.044,0.282,0.082c-0.091-0.024-0.182-0.048-0.273-0.072l1.248,4.992c0.164,0.041,0.325,0.084,0.485,0.125l-0.498,1.992l1.115,0.279l0.499-1.996c0.36,0.091,0.713,0.178,1.062,0.261l-0.499,1.996l1.115,0.279l0.498-1.992c2.469,0.46,4.364,0.12,5.26-2.23c0.557-1.462-0.038-2.422-1.123-3.107C21.4,15.529,21.758,14.479,21.905,12.953z M18.159,16.038l-0.74,2.96c-0.547-0.137-1.112-0.276-1.694-0.422l0.423-1.691C16.713,16.941,17.411,16.425,18.159,16.038z M19.493,12.271l-0.669,2.677c-0.596-0.149-1.212-0.303-1.846-0.46l0.38-1.521C18.067,13.125,18.784,12.75,19.493,12.271z"/>
+    </svg>
+  </div>
+
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header" role="banner">
@@ -38,7 +42,7 @@
     <nav class="primary-nav" role="navigation" aria-label="Main Navigation">
       <button id="mobile-nav-toggle" aria-expanded="false" aria-controls="primary-menu">☰</button>
       <ul id="primary-menu" class="menu" aria-expanded="false">
-        <li><a href="#" class="nav-link active" data-section="about">About</a></li>
+        <li><a href="#" class="nav-link" data-section="about">About</a></li>
         <li><a href="#" class="nav-link" data-section="projects">Projects</a></li>
         <li><a href="#" class="nav-link" data-section="blogs">Blogs</a></li>
         <li><a href="#" class="nav-link" data-section="activity">Activity</a></li>
@@ -48,36 +52,23 @@
     </nav>
   </header>
 
-  <main id="main">
-    <!-- HERO -->
-    <section class="hero section">
-      <div class="hero-content">
-        <h2>Hi — I'm <strong>Mahendiran</strong></h2>
-        <p class="lead">AI Engineer focused on NLP, Computer Vision and building production-ready ML systems.</p>
-        <p class="cta-row">
-          <a class="btn primary nav-link" data-section="projects" href="#">View Projects</a>
-          <a class="btn ghost" href="resume.txt" download>Download Resume</a>
-        </p>
-      </div>
-      <div class="hero-visual" aria-hidden="true">
-        <svg width="280" height="280" viewBox="0 0 32 32" fill="none"
-          xmlns="http://www.w3.org/2000/svg">
-          <circle cx="16" cy="16" r="15" stroke="#f7931a"
-            stroke-opacity="0.08" stroke-width="2" />
-          <text x="50%" y="52%" text-anchor="middle"
-            dominant-baseline="middle" font-size="9"
-            fill="#f7931a" opacity="0.08">AI</text>
-        </svg>
-      </div>
-    </section>
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Hi — I'm <strong>Mahendiran</strong></h2>
+      <p class="lead">AI Engineer focused on NLP, Computer Vision and building production-ready ML systems.</p>
+      <p class="cta-row">
+        <a class="btn primary nav-link" data-section="projects" href="#">View Projects</a>
+        <a class="btn ghost" href="resume.txt" download>Download Resume</a>
+      </p>
+    </div>
+  </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section visible">
+  <main id="main">
+    <section id="about" class="section">
       <h2>About Me</h2>
       <div class="split">
         <div>
           <p>Hello! I'm <strong>Mahendiran Adidravidar</strong>, an AI Engineer building models, pipelines, and dashboards that translate data into decisions. I enjoy productionizing ML, visualization, and open-source projects.</p>
-
           <div class="skills">
             <h3>Skills</h3>
             <ul>
@@ -97,7 +88,6 @@
       </div>
     </section>
 
-    <!-- PROJECTS -->
     <section id="projects" class="section">
       <h2>Projects</h2>
       <div class="card-grid" id="projects-grid">
@@ -106,13 +96,11 @@
           <p>Conversational AI trained on custom datasets and exposed via a Flask API.</p>
           <p class="tags"><span>Python</span><span>Flask</span><span>NLProc</span></p>
         </article>
-
         <article class="card project-card">
           <h3>Stock Price Predictor</h3>
           <p>Time-series model using LSTM for trend forecasting with automated retraining.</p>
           <p class="tags"><span>TensorFlow</span><span>Pandas</span><span>LSTM</span></p>
         </article>
-
         <article class="card project-card">
           <h3>Image Classifier</h3>
           <p>CNN pipeline for image classification with 90%+ accuracy and FastAPI serving.</p>
@@ -121,23 +109,18 @@
       </div>
     </section>
 
-    <!-- BLOGS -->
     <section id="blogs" class="section">
       <h2>Blogs</h2>
       <div id="blogs-container" class="card-grid" aria-live="polite">
-        <!-- populated by script -->
-      </div>
+        </div>
     </section>
 
-    <!-- ACTIVITY -->
     <section id="activity" class="section">
       <h2>Activity</h2>
       <div id="activity-list" class="card-grid">
-        <!-- populated by script -->
-      </div>
+        </div>
     </section>
 
-    <!-- RESUME -->
     <section id="resume" class="section">
       <h2>Resume</h2>
       <p>You can watch my video resume or download the text resume below.</p>
@@ -149,29 +132,23 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact" class="section">
       <h2>Contact</h2>
       <p>Want to collaborate? Send me a message — I'll try to respond within a few days.</p>
-
-      <form id="contact-form" class="contact-form" action="mailto:your.email@example.com" method="GET" novalidate>
+      <form id="contact-form" class="contact-form" action="mailto:mahendiran.a@email.com" method="GET" novalidate>
         <label for="name">Name</label>
         <input id="name" name="name" type="text" required>
-
         <label for="email">Email</label>
         <input id="email" name="email" type="email" required>
-
         <label for="message">Message</label>
         <textarea id="message" name="body" rows="5" required></textarea>
-
         <div class="form-actions">
           <button type="submit" class="btn primary">Send (opens email)</button>
           <button type="button" id="contact-copy" class="btn ghost">Copy email</button>
         </div>
-        <p class="note">If your mail client doesn't open, please copy the email address.</p>
+        <p class="note">If your mail client doesn't open, please copy my email address: mahendiran.a@email.com</p>
       </form>
     </section>
-
   </main>
 
   <footer class="site-footer">
