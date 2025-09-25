@@ -1,18 +1,14 @@
-
 [
   {
     "title": "Learning Distributions",
     "description": "Studied Normal, Binomial, and PDF basics.",
-    "link": "https://www.linkedin.com/posts/your-link"
+    "link": "https://www.linkedin.com/",
+    "date": "2025-09-20"
   },
   {
     "title": "Portfolio Website",
     "description": "Added blogs.json and activity.json to GitHub Pages.",
-    "link": "https://www.linkedin.com/posts/your-link"
-  },
-    {
-    "title": "Portfolio ",
-    "description": "Added blogs.json and activity.json to GitHub Pages.",
-    "link": "https://www.linkedin.com/posts/your-link"
+    "link": "https://www.linkedin.com/",
+    "date": "2025-07-05"
   }
 ]
