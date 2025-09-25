@@ -1,23 +1,17 @@
-
 [
   {
     "title": "Understanding Transformers in NLP",
     "description": "Beginner-friendly intro to how transformers changed NLP forever.",
-    "link": "https://www.linkedin.com/posts/your-link"
+    "link": "https://www.linkedin.com/"
   },
   {
     "title": "Pandas Cleaning?",
-    "description": "Exploring connections between blockchain and artificial intelligence.",
-    "link": "https://www.linkedin.com/posts/your-link"
+    "description": "Techniques for cleaning and preparing data with Pandas.",
+    "link": "https://www.linkedin.com/"
   },
   {
     "title": "What is Central Limit Theorem?",
-    "description": "Exploring connections between blockchain and artificial intelligence.",
-    "link": "https://www.linkedin.com/posts/your-link"
-  },
-    {
-    "title": "What is Confidence Interval and Levels?",
-    "description": "Exploring connections between blockchain and artificial intelligence.",
-    "link": "https://www.linkedin.com/posts/your-link"
+    "description": "A simple explanation with visuals and examples.",
+    "link": "https://www.linkedin.com/"
   }
 ]
