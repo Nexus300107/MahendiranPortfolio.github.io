@@ -298,3 +298,21 @@ main {
   --muted: #4b5563;
   --glass: rgba(0, 0, 0, 0.04);
 }
+
+/* ============================ */
+/* 🔥 New Additions 🔥 */
+/* ============================ */
+
+/* Section switching */
+.section {
+  display: none; /* all hidden by default */
+}
+.section.visible {
+  display: block; /* only active one shows */
+}
+
+/* Navbar active state */
+.menu a.active {
+  background: var(--glass);
+  color: var(--accent);
+}
