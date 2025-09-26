@@ -99,12 +99,12 @@ body {
   background: var(--glass);
   color: var(--accent);
 }
-#theme-toggle {
+/* #theme-toggle {
   background: none;
   border: 0;
   font-size: 1.25rem;
   cursor: pointer;
-}
+} */
 
 /* Layout */
 main {
