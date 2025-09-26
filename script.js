@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <p>${escapeHtml(item.description)}</p>
       <p class="muted"><strong>Date:</strong> ${date}</p>`;
     if (item.link) {
-      div.innerHTML += `<p class="read-more"><a href="${item.link}" target="_blank" rel="noopener">Read more →</a></p>`;
+      div.innerHTML += `<p class="read-more"><a href="${item.link}" target="_blank" rel="noopener">More →</a></p>`;
     }
     container.appendChild(div);
   });
