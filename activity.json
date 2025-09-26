@@ -5,5 +5,13 @@
     "link": "https://leetcode.com/u/Mahendiran88/",
     "date": "",
     "tags": ["DSA", "Algorithms"]
+  },
+  {
+    "title": "Data Structures Practice - Stacks, Queues & Deque",
+    "description": "Today I practiced and solved problems on implementing stacks and queues using arrays, linked lists, and each other. I also learned about Deque in Python and completed LeetCode problems such as Implement Stack using Queue, Implement Queue using Stack, Valid Parentheses, and Min Stack.",
+    "link": "https://leetcode.com/u/Mahendiran88/",
+    "date": "",
+    "tags": ["DSA", "Algorithms"]
   }
+  
 ]
