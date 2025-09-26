@@ -2,60 +2,55 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Elements ---
   const menu = document.getElementById('primary-menu');
   const mobileToggle = document.getElementById('mobile-nav-toggle');
-  const themeToggle = document.getElementById('theme-toggle');
+  const themeToggle = document.getElementById('theme-toggle'); // might be null
   const yearEl = document.getElementById('year');
   const navLinks = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('main > .section');
 
   // --- Initialize ---
-  // Year in footer
-  if(yearEl) yearEl.textContent = new Date().getFullYear();
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   // --- Mobile Navigation ---
-  mobileToggle.addEventListener('click', () => {
-    const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
-    mobileToggle.setAttribute('aria-expanded', String(!isExpanded));
-    menu.setAttribute('aria-expanded', String(!isExpanded));
-  });
+  if (mobileToggle && menu) {
+    mobileToggle.addEventListener('click', () => {
+      const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+      mobileToggle.setAttribute('aria-expanded', String(!isExpanded));
+      menu.setAttribute('aria-expanded', String(!isExpanded));
+    });
+  }
 
   // --- Theme Toggle ---
   const applyTheme = (isLight) => {
     if (isLight) document.documentElement.classList.add('light');
     else document.documentElement.classList.remove('light');
-    themeToggle.setAttribute('aria-pressed', String(isLight));
+    if (themeToggle) themeToggle.setAttribute('aria-pressed', String(isLight));
   };
 
   const savedTheme = localStorage.getItem('site-theme');
-  if (savedTheme) {
+  if (savedTheme !== null) {
     applyTheme(savedTheme === 'light');
   } else {
     const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
     applyTheme(prefersLight);
   }
 
-  themeToggle.addEventListener('click', () => {
-    const isLight = document.documentElement.classList.toggle('light');
-    localStorage.setItem('site-theme', isLight ? 'light' : 'dark');
-    applyTheme(isLight);
-  });
-  
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const isLight = document.documentElement.classList.toggle('light');
+      localStorage.setItem('site-theme', isLight ? 'light' : 'dark');
+      applyTheme(isLight);
+    });
+  }
+
   // --- Section Switching ---
   const showSection = (sectionId) => {
-    // Hide all sections
     sections.forEach(sec => sec.classList.remove('visible'));
-
-    // Show the target section
     const targetSection = document.getElementById(sectionId);
-    if (targetSection) {
-      targetSection.classList.add('visible');
-    }
+    if (targetSection) targetSection.classList.add('visible');
 
-    // Update active state in nav links
     navLinks.forEach(link => {
       link.classList.remove('active');
-      if (link.dataset.section === sectionId) {
-        link.classList.add('active');
-      }
+      if (link.dataset.section === sectionId) link.classList.add('active');
     });
   };
 
@@ -65,11 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const sectionId = link.dataset.section;
       if (sectionId) {
         showSection(sectionId);
-        
         // Close mobile menu after navigation
-        if (mobileToggle.getAttribute('aria-expanded') === 'true') {
+        if (mobileToggle && mobileToggle.getAttribute('aria-expanded') === 'true') {
           mobileToggle.setAttribute('aria-expanded', 'false');
-          menu.setAttribute('aria-expanded', 'false');
+          if (menu) menu.setAttribute('aria-expanded', 'false');
         }
       }
     });
@@ -79,52 +73,49 @@ document.addEventListener('DOMContentLoaded', () => {
   showSection('about');
 
   // --- Dynamic Content Loading ---
-  // Load blogs.json
-  fetch('blogs.json')
-    .then((r) => r.json())
-    .then((data) => {
-      const container = document.getElementById('blogs-container');
-      container.innerHTML = '';
-      data.forEach((b) => {
-        // Create an <article> for the card so we can have a link inside it
-        const article = document.createElement('article');
-        article.className = 'card';
-        
-        // Set the main content
-        article.innerHTML = `<h3>${escapeHtml(b.title)}</h3><p>${escapeHtml(b.description)}</p>`;
-        
-        // If a link exists in the JSON, add the "Read more" link
-        if (b.link) {
-          article.innerHTML += `<p class="read-more"><a href="${b.link}" target="_blank" rel="noopener">Read more →</a></p>`;
-        }
-        
-        container.appendChild(article);
+  function loadJsonToContainer(url, containerId, renderItem) {
+    fetch(url)
+      .then((r) => {
+        if (!r.ok) throw new Error(`HTTP ${r.status} ${r.statusText}`);
+        return r.json();
+      })
+      .then((data) => {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        container.innerHTML = '';
+        data.forEach(renderItem.bind(null, container));
+      })
+      .catch((err) => {
+        console.warn(`Could not load ${url}`, err);
+        const container = document.getElementById(containerId);
+        if (container) container.innerHTML = `<p class="muted">Could not load content.</p>`;
       });
-    })
-    .catch((err) => console.warn('Could not load blogs.json', err));
+  }
 
-  // Load activity.json
-  fetch('activity.json')
-    .then((r) => r.json())
-    .then((data) => {
-      const container = document.getElementById('activity-list');
-      container.innerHTML = '';
-      data.forEach((item) => {
-        const div = document.createElement('div');
-        div.className = 'card';
-        const date = item.date || new Date().toLocaleDateString('en-GB', {
-          day: 'numeric', month: 'long', year: 'numeric',
-        });
-        div.innerHTML = `<h3>${escapeHtml(item.title)}</h3>
-          <p>${escapeHtml(item.description)}</p>
-          <p class="muted"><strong>Date:</strong> ${date}</p>`;
-        if (item.link) {
-          div.innerHTML += `<p class="read-more"><a href="${item.link}" target="_blank" rel="noopener">Read more →</a></p>`;
-        }
-        container.appendChild(div);
-      });
-    })
-    .catch((err) => console.warn('Could not load activity.json', err));
+  loadJsonToContainer('blogs.json', 'blogs-container', (container, b) => {
+    const article = document.createElement('article');
+    article.className = 'card';
+    article.innerHTML = `<h3>${escapeHtml(b.title)}</h3><p>${escapeHtml(b.description)}</p>`;
+    if (b.link) {
+      article.innerHTML += `<p class="read-more"><a href="${b.link}" target="_blank" rel="noopener">Read more →</a></p>`;
+    }
+    container.appendChild(article);
+  });
+
+  loadJsonToContainer('activity.json', 'activity-list', (container, item) => {
+    const div = document.createElement('div');
+    div.className = 'card';
+    const date = item.date || new Date().toLocaleDateString('en-GB', {
+      day: 'numeric', month: 'long', year: 'numeric',
+    });
+    div.innerHTML = `<h3>${escapeHtml(item.title)}</h3>
+      <p>${escapeHtml(item.description)}</p>
+      <p class="muted"><strong>Date:</strong> ${date}</p>`;
+    if (item.link) {
+      div.innerHTML += `<p class="read-more"><a href="${item.link}" target="_blank" rel="noopener">Read more →</a></p>`;
+    }
+    container.appendChild(div);
+  });
 
   // --- Contact Form ---
   const copyBtn = document.getElementById('contact-copy');
@@ -144,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Utility ---
   function escapeHtml(s) {
     if (!s) return '';
-    return s.replace(/[&<>"]/g, (c) => 
+    return s.replace(/[&<>"]/g, (c) =>
       ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])
     );
   }
