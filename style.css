@@ -360,3 +360,29 @@ main {
 .section.visible {
   display: block; /* only active one shows */
 }
+/* Add this to your main stylesheet */
+
+/* This makes the card a positioning container for the absolute tags */
+.card {
+    position: relative;
+}
+
+/* This is the container for the tags */
+.card-tags {
+    position: absolute;
+    top: 15px;      /* Adjust spacing from the top */
+    right: 15px;    /* Adjust spacing from the right */
+    display: flex;
+    gap: 6px;       /* Space between tags */
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.card-tags span {
+    background-color: #333; /* A dark background for the tag */
+    color: #ccc;            /* A light grey text color */
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 0.75em;      /* Make the font a bit smaller */
+    font-weight: bold;
+}
