@@ -102,22 +102,42 @@ document.addEventListener('DOMContentLoaded', () => {
     container.appendChild(article);
   });
 
+  // Activity rendering: Date moved to top of the card
   loadJsonToContainer('activity.json', 'activity-list', (container, item) => {
     const div = document.createElement('div');
     div.className = 'card';
-    const date = item.date || new Date().toLocaleDateString('en-GB', {
-      day: 'numeric', month: 'long', year: 'numeric',
-    });
-    div.innerHTML = `<h3>${escapeHtml(item.title)}</h3>
-      <p>${escapeHtml(item.description)}</p>
-      <p class="muted"><strong>Date:</strong> ${date}</p>`;
+
+    // compute formatted date (fallback to today's date if empty)
+    const rawDate = (item.date || '').trim();
+    let date;
+    if (rawDate) {
+      // try to parse ISO-like dates, otherwise show raw string
+      const parsed = new Date(rawDate);
+      if (!isNaN(parsed.getTime())) {
+        date = parsed.toLocaleDateString('en-GB', {
+          day: 'numeric', month: 'long', year: 'numeric',
+        });
+      } else {
+        date = escapeHtml(rawDate);
+      }
+    } else {
+      date = new Date().toLocaleDateString('en-GB', {
+        day: 'numeric', month: 'long', year: 'numeric',
+      });
+    }
+
+    // Date at top (muted), then title and description
+    div.innerHTML = `<p class="muted activity-date" aria-hidden="true"><strong>${date}</strong></p>
+      <h3>${escapeHtml(item.title)}</h3>
+      <p>${escapeHtml(item.description)}</p>`;
+
     if (item.link) {
       div.innerHTML += `<p class="read-more"><a href="${item.link}" target="_blank" rel="noopener">More →</a></p>`;
     }
     container.appendChild(div);
   });
 
-  // --- Contact Form ---
+  // --- Contact Form / Copy Email ---
   const copyBtn = document.getElementById('contact-copy');
   const myEmail = 'mahendiran.a@email.com'; // ** IMPORTANT: Change this email **
 
@@ -135,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Utility ---
   function escapeHtml(s) {
     if (!s) return '';
-    return s.replace(/[&<>"]/g, (c) =>
+    return String(s).replace(/[&<>"]/g, (c) =>
       ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])
     );
   }
