@@ -1,10 +1,16 @@
 [
   {
-    "title": "Data Structures Practice - Stacks, Queues & Deque",
-    "description": "Today I practiced and solved problems on implementing stacks and queues using arrays, linked lists, and each other. I also learned about Deque in Python and completed LeetCode problems such as Implement Stack using Queue, Implement Queue using Stack, Valid Parentheses, and Min Stack.",
-    "link": "https://leetcode.com/u/Mahendiran88/",
-    "date": "",
-    "tags": ["DSA", "Algorithms"]
+    "date": "2025-09-26",
+    "title": "Set up Local Development Environment",
+    "description": "Cloned the portfolio repository and successfully opened it in VS Code.",
+    "link": "",
+    "tags": ["Git", "VS Code"]
+  },
+  {
+    "date": "2025-09-25",
+    "title": "Data Structures Practice",
+    "description": "Solved LeetCode problems.",
+    "link": "#",
+    "tags": ["DSA"]
   }
-  
 ]
