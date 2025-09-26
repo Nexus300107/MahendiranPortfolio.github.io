@@ -68,7 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-
   // Show default section on initial load
   showSection('about');
 
@@ -101,17 +100,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     container.appendChild(article);
   });
-
-  // Activity rendering: Date moved to top of the card
+  
+  // MODIFIED: Activity rendering now includes tags
   loadJsonToContainer('activity.json', 'activity-list', (container, item) => {
     const div = document.createElement('div');
     div.className = 'card';
 
-    // compute formatted date (fallback to today's date if empty)
+    // Create tags HTML if they exist
+    let tagsHtml = '';
+    if (item.tags && Array.isArray(item.tags) && item.tags.length > 0) {
+      tagsHtml = `<div class="card-tags">
+        ${item.tags.map(tag => `<span>${escapeHtml(tag)}</span>`).join('')}
+      </div>`;
+    }
+
+    // Compute formatted date
     const rawDate = (item.date || '').trim();
     let date;
     if (rawDate) {
-      // try to parse ISO-like dates, otherwise show raw string
       const parsed = new Date(rawDate);
       if (!isNaN(parsed.getTime())) {
         date = parsed.toLocaleDateString('en-GB', {
@@ -126,10 +132,13 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Date at top (muted), then title and description
-    div.innerHTML = `<p class="muted activity-date" aria-hidden="true"><strong>${date}</strong></p>
+    // Construct the card's inner HTML, including the new tags
+    div.innerHTML = `
+      ${tagsHtml}
+      <p class="muted activity-date" aria-hidden="true"><strong>${date}</strong></p>
       <h3>${escapeHtml(item.title)}</h3>
-      <p>${escapeHtml(item.description)}</p>`;
+      <p>${escapeHtml(item.description)}</p>
+    `;
 
     if (item.link) {
       div.innerHTML += `<p class="read-more"><a href="${item.link}" target="_blank" rel="noopener">More →</a></p>`;
