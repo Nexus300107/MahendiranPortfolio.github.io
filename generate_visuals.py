@@ -14,6 +14,7 @@ except (FileNotFoundError, json.JSONDecodeError) as e:
     exit()
 
 df = pd.DataFrame(data)
+df.head()
 df['date'] = pd.to_datetime(df['date'])
 daily_activity = df.groupby(df['date'].dt.date).size().reset_index(name='count')
 daily_activity['date'] = pd.to_datetime(daily_activity['date'])
