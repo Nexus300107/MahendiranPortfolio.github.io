@@ -386,3 +386,83 @@ main {
     font-size: 0.75em;      /* Make the font a bit smaller */
     font-weight: bold;
 }
+/* Resume Section Styles */
+.resume-container {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  padding: 20px 30px;
+  max-width: 900px;
+  margin: 0 auto 24px auto; /* Add margin to bottom */
+}
+
+.resume-section {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.resume-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.resume-section h3 {
+  color: var(--accent);
+  margin-top: 0;
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  padding-bottom: 8px;
+  font-size: 1.2rem;
+}
+
+.resume-section h4 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.resume-section h4 a {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--accent);
+  text-decoration: none;
+}
+.resume-section h4 a:hover {
+  text-decoration: underline;
+}
+
+.resume-section p, .resume-section ul, .resume-section div {
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.resume-section ul {
+  padding-left: 20px;
+  margin: 10px 0;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 12px;
+}
+
+.project-item {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.project-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.download-center {
+  text-align: center;
+  margin-top: 24px;
+}
