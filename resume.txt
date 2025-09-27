@@ -1,0 +1,51 @@
+Mahendiran Adidravidar
++91 8779289952 | Mahendiranmma@gmail.com | Nagpur, India
+LinkedIn: linkedin.com/in/mahendiran-adidravidar-53831a370
+GitHub: github.com/Nexus300107
+Portfolio: nexus300107.github.io/MahendiranPortfolio.github.io/
+
+======================================================================
+SUMMARY
+======================================================================
+
+A self-motivated and curious Information Technology student with a strong foundation in Python, SQL, and data analysis. Passionate about leveraging data visualization and machine learning concepts to solve complex problems. Eager to apply my skills and dedication to a challenging internship or entry-level role in the field of AI and Data Science.
+
+======================================================================
+EDUCATION
+======================================================================
+
+St. John College of Humanities and Sciences, Mumbai, India
+Bachelor of Science, Information Technology
+Expected Graduation: May 2027
+
+======================================================================
+TECHNICAL SKILLS
+======================================================================
+
+* Languages:      Python, SQL
+* Data Libraries: Pandas, NumPy, Matplotlib, Seaborn, Plotly
+* Databases:      MySQL
+* Tools:          Git, GitHub, Jupyter Notebook, VS Code
+* Knowledge Areas: Statistics & Probability, Machine Learning Concepts
+
+======================================================================
+PROJECTS
+======================================================================
+
+Interactive Learning Activity Dashboard
+GitHub Link: [Link to your project repository]
+
+- Developed a Python script that automatically parses a JSON activity log, aggregates daily learning events, and generates an interactive web-based dashboard to visualize personal progress and consistency.
+- Implemented a data aggregation script to group activities by date and calculate daily totals.
+- Built a dynamic and interactive bar chart using Plotly Express, customizing it with tooltips to improve readability.
+- Technologies Used: Python, Pandas, Plotly, JSON
+
+---
+
+SQL-Based Analysis of Netflix Content
+GitHub Link: [Link to your project repository]
+
+- Performed a comprehensive analysis of the Netflix dataset containing over 8,000 titles. Designed a relational database schema in MySQL and wrote complex SQL queries to extract actionable insights about content trends.
+- Designed and implemented a MySQL database schema, ingesting and structuring data from a raw CSV file.
+- Authored and executed 10+ SQL queries using joins, aggregate functions, and grouping to identify top directors, popular genres, and content release trends.
+- Technologies Used: SQL, MySQL, Git, GitHub
