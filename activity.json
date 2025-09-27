@@ -12,5 +12,12 @@
     "description": "Solved LeetCode Problem 155 'Min Stack' — implemented a stack that supports push, pop, top, and retrieving the minimum element in constant time using an auxiliary stack. Also solved Problem 20 'Valid Parentheses'. Gained a deeper understanding of stack operations, handling duplicate minimums, and designing O(1) solutions.",
     "link": "https://leetcode.com/u/Mahendiran88/",
     "tags": ["DSA", "Stack", "Min Stack", "Valid Parentheses"]
+  },
+  {
+    "date": "2025-09-27",
+    "title": "Learned Hypothesis Testing in Statistics",
+    "description": "Studied the core concepts of hypothesis testing, including null and alternate hypotheses, Z-tests, rejection regions, Type I vs. Type II errors, one-tailed vs. two-tailed tests, and its applications in machine learning.",
+    "link": "",
+    "tags": ["Statistics", "Hypothesis Testing", "Machine Learning"]
   }
 ]
