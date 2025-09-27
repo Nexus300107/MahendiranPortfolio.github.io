@@ -1,17 +1,16 @@
 [
   {
     "date": "2025-09-26",
-    "title": "Queue and Stack implementation",
-    "description": "implementes stack using queue and queue using stack also understood fundamentals of stack",
+    "title": "Queue and Stack Implementation",
+    "description": "Implemented Stack using Queue and Queue using Stack. Also reinforced fundamentals of stack operations.",
     "link": "https://leetcode.com/u/Mahendiran88/",
-    "tags": ["DSA", "Stack and Queue"]
+    "tags": ["DSA","Stack and Queue"]
   },
-    {
-  "date": "2025-09-27",
-  "title": "LeetCode 155 and 20: Min Stack and valid parenthesis",
-  "description": "Solved the LeetCode 'Min Stack' problem (155). Implemented a stack that supports push, pop, top, and retrieving the minimum element in constant time using an auxiliary stack. Gained a deeper understanding of stack operations, handling duplicate minimums, and designing O(1) solutions.and solved easy level leetcode 20th question",
-  "link": "https://leetcode.com/u/Mahendiran88/",
-  "tags": ["DSA", "Stack", "Min Stack", "LeetCode"]
-}
-
+  {
+    "date": "2025-09-27",
+    "title": "LeetCode 155 and 20: Min Stack and Valid Parentheses",
+    "description": "Solved LeetCode Problem 155 'Min Stack' — implemented a stack that supports push, pop, top, and retrieving the minimum element in constant time using an auxiliary stack. Also solved Problem 20 'Valid Parentheses'. Gained a deeper understanding of stack operations, handling duplicate minimums, and designing O(1) solutions.",
+    "link": "https://leetcode.com/u/Mahendiran88/",
+    "tags": ["DSA", "Stack", "Min Stack", "Valid Parentheses"]
+  }
 ]
