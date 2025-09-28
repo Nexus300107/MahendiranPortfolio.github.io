@@ -19,5 +19,12 @@
     "description": "Studied the core concepts of hypothesis testing, including null and alternate hypotheses, Z-tests, rejection regions, Type I vs. Type II errors, one-tailed vs. two-tailed tests, and its applications in machine learning.",
     "link": "",
     "tags": ["Statistics", "Hypothesis Testing", "Machine Learning"]
+  },
+  {
+    "date": "2025-09-28",
+    "title": "Advanced Stack: Expression Conversions & LeetCode Monotonic Stack Problems",
+    "description": "Practiced various expression conversion algorithms (Infix, Prefix, Postfix). Solved LeetCode problems involving monotonic stacks: #503 'Next Greater Element II' and #735 'Asteroid Collision'.",
+    "link": "https://leetcode.com/u/Mahendiran88/",
+    "tags": ["DSA", "Queue", "Monotonic Stack", "LeetCode-503 & 735"]
   }
 ]
