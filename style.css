@@ -369,13 +369,11 @@ main {
 
 /* This is the container for the tags */
 .card-tags {
-    position: absolute;
-    top: 15px;      /* Adjust spacing from the top */
-    right: 15px;    /* Adjust spacing from the right */
     display: flex;
-    gap: 6px;       /* Space between tags */
+    gap: 6px;
     flex-wrap: wrap;
     justify-content: flex-end;
+    flex-shrink: 0; /* Prevents tags from shrinking and wrapping too early */
 }
 
 .card-tags span {
@@ -465,4 +463,17 @@ main {
 .download-center {
   text-align: center;
   margin-top: 24px;
+}
+
+/* FIX: Styles for the new activity card header to prevent overlap */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px; /* Adds space between the text and the tags */
+  margin-bottom: 12px; /* Adds space between the header and the description text */
+}
+
+.card-main-content {
+  flex: 1; /* Allows the main text content to take up the available space */
 }
