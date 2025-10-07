@@ -132,15 +132,13 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Construct the card's inner HTML using a flexbox-friendly structure
+    // Construct the card's inner HTML to restore the old layout without overlap
     div.innerHTML = `
-      <div class="card-header">
-        <div class="card-main-content">
-          <p class="muted activity-date" aria-hidden="true"><strong>${date}</strong></p>
-          <h3>${escapeHtml(item.title)}</h3>
-        </div>
+      <div class="card-top-line">
+        <p class="muted activity-date"><strong>${date}</strong></p>
         ${tagsHtml}
       </div>
+      <h3>${escapeHtml(item.title)}</h3>
       <p>${escapeHtml(item.description)}</p>
     `;
 
