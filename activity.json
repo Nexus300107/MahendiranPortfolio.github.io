@@ -26,5 +26,26 @@
     "description": "Practiced various expression conversion algorithms (Infix, Prefix, Postfix). Solved LeetCode problems involving monotonic stacks: #503 'Next Greater Element II' and #735 'Asteroid Collision'.",
     "link": "https://leetcode.com/u/Mahendiran88/",
     "tags": ["DSA", "Queue", "Monotonic Stack", "LeetCode-503 & 735"]
+  },
+  {
+    "date": "2025-10-02",
+    "title": "Crypto Investment and Portfolio Management",
+    "description": "Dedicated time from Sep 29th to Oct 2nd for crypto investment research and managing a friend's portfolio.",
+    "link": "",
+    "tags": ["Crypto", "Investing", "Portfolio Management"]
+  },
+  {
+    "date": "2025-10-05",
+    "title": "Completed Probability for AI/ML",
+    "description": "Completed an intensive 3-day study (Oct 3-5) on the fundamentals of probability required for AI and Machine Learning.",
+    "link": "",
+    "tags": ["Statistics", "Probability"]
+  },
+  {
+    "date": "2025-10-06",
+    "title": "Linear Algebra Fundamentals: Scalars to Dot Product",
+    "description": "Studied foundational concepts in linear algebra, covering scalars, vectors, and the dot product.",
+    "link": "",
+    "tags": ["Linear Algebra", "Mathematics"]
   }
 ]
