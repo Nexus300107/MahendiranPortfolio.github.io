@@ -132,11 +132,15 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Construct the card's inner HTML, including the new tags
+    // Construct the card's inner HTML using a flexbox-friendly structure
     div.innerHTML = `
-      ${tagsHtml}
-      <p class="muted activity-date" aria-hidden="true"><strong>${date}</strong></p>
-      <h3>${escapeHtml(item.title)}</h3>
+      <div class="card-header">
+        <div class="card-main-content">
+          <p class="muted activity-date" aria-hidden="true"><strong>${date}</strong></p>
+          <h3>${escapeHtml(item.title)}</h3>
+        </div>
+        ${tagsHtml}
+      </div>
       <p>${escapeHtml(item.description)}</p>
     `;
 
