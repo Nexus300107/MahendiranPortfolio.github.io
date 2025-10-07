@@ -372,8 +372,6 @@ main {
     display: flex;
     gap: 6px;
     flex-wrap: wrap;
-    justify-content: flex-end;
-    flex-shrink: 0; /* Prevents tags from shrinking and wrapping too early */
 }
 
 .card-tags span {
@@ -465,15 +463,15 @@ main {
   margin-top: 24px;
 }
 
-/* FIX: Styles for the new activity card header to prevent overlap */
-.card-header {
+/* FIX: Restore old layout and prevent overlap */
+.card-top-line {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 16px; /* Adds space between the text and the tags */
-  margin-bottom: 12px; /* Adds space between the header and the description text */
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 12px;
 }
 
-.card-main-content {
-  flex: 1; /* Allows the main text content to take up the available space */
+.activity-date {
+  margin: 0; /* Remove default paragraph margin to help alignment */
 }
