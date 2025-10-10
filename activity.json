@@ -47,5 +47,19 @@
     "description": "Studied foundational concepts in linear algebra, covering scalars, vectors, and the dot product.",
     "link": "",
     "tags": ["Linear Algebra", "Mathematics"]
+  },
+  {
+    "date": "2025-10-08",
+    "title": "Advanced Linear Algebra and Dimensionality Reduction",
+    "description": "Completed a comprehensive 2-day study of linear algebra, covering vectors, matrices, projections, and unit vectors. Delved into data science applications, including data preprocessing (normalization, standardization), covariance matrices, and dimensionality reduction techniques like PCA (with Eigenvalues/Eigenvectors) and t-SNE.",
+    "link": "",
+    "tags": ["Linear Algebra", "Mathematics", "PCA", "t-SNE", "Dimensionality Reduction", "Data Science"]
+  },
+  {
+    "date": "2025-10-09",
+    "title": "Introduction to Calculus",
+    "description": "Started studying the fundamental basics of calculus.",
+    "link": "",
+    "tags": ["Calculus", "Mathematics"]
   }
 ]
