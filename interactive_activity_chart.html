@@ -37,9 +37,8 @@
                   pattern: { shape: "" }
                 },
                 name: "",
-                orientation: "v",
+                mode: "lines", // <- changed from bar chart to line plot
                 showlegend: false,
-                textposition: "auto",
                 x: [
                   "2025-09-26T00:00:00.000000000",
                   "2025-09-27T00:00:00.000000000"
@@ -47,18 +46,10 @@
                 xaxis: "x",
                 y: { dtype: "i1", bdata: "AQI=" },
                 yaxis: "y",
-                type: "bar"
+                type: "scatter" // <- key change here
               }
             ],
             {
-              template: {
-                data: {
-                  // Skipped the large Plotly theme data block here for brevity
-                },
-                layout: {
-                  // Skipped layout theme for brevity
-                }
-              },
               xaxis: {
                 anchor: "y",
                 domain: [0.0, 1.0],
@@ -80,3 +71,4 @@
     </div>
   </body>
 </html>
+
