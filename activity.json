@@ -61,5 +61,26 @@
     "description": "Started studying the fundamental basics of calculus.",
     "link": "",
     "tags": ["Calculus", "Mathematics"]
+  },
+  {
+    "date": "2025-10-18",
+    "title": "Completed Calculus for Machine Learning",
+    "description": "Finished an intensive study period from Oct 10th to 18th, completing all calculus fundamentals needed for ML.",
+    "link": "",
+    "tags": ["Calculus", "Mathematics"]
+  },
+  {
+    "date": "2025-10-18",
+    "title": "Started Machine Learning: Days 1-10 of 100 Days of ML",
+    "description": "Began the '100 Days of Machine Learning' course (CampusX). Covered Days 1-10: What is ML, AI vs ML vs DL, Types of ML (Batch, Online, Instance vs Model), key challenges, applications, the ML Life Cycle, and various data-related job roles.",
+    "link": "",
+    "tags": ["Machine Learning", "ML Basics", "100 Days of ML"]
+  },
+  {
+    "date": "2025-10-19",
+    "title": "Continued Machine Learning: Days 11-16 of 100 Days of ML",
+    "description": "Continued the ML course. Learned about Tensors (Day 11), setting up the environment with Anaconda/Jupyter (Day 12), End-to-End project flow (Day 13), framing a problem (Day 14), and handling data from CSV (Day 15) and JSON/SQL (Day 16).",
+    "link": "",
+    "tags": ["Machine Learning", "Tensors", "Data Handling", "ML Project Lifecycle", "Anaconda"]
   }
 ]
