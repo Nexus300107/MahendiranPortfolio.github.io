@@ -4,14 +4,14 @@
     "title": "Queue and Stack Implementation",
     "description": "Implemented Stack using Queue and Queue using Stack. Also reinforced fundamentals of stack operations.",
     "link": "https://leetcode.com/u/Mahendiran88/",
-    "tags": ["DSA","Stack and Queue"]
+    "tags": ["DSA", "Stack and Queue"]
   },
   {
     "date": "2025-09-27",
     "title": "LeetCode 155 and 20: Min Stack and Valid Parentheses",
     "description": "Solved LeetCode Problem 155 'Min Stack' — implemented a stack that supports push, pop, top, and retrieving the minimum element in constant time using an auxiliary stack. Also solved Problem 20 'Valid Parentheses'. Gained a deeper understanding of stack operations, handling duplicate minimums, and designing O(1) solutions.",
     "link": "https://leetcode.com/u/Mahendiran88/",
-    "tags": ["DSA", "Stack", "Min Stack", "Valid Parentheses"]
+    "tags": ["DSA", "Stack", "LeetCode"]
   },
   {
     "date": "2025-09-27",
@@ -25,7 +25,7 @@
     "title": "Advanced Stack: Expression Conversions & LeetCode Monotonic Stack Problems",
     "description": "Practiced various expression conversion algorithms (Infix, Prefix, Postfix). Solved LeetCode problems involving monotonic stacks: #503 'Next Greater Element II' and #735 'Asteroid Collision'.",
     "link": "https://leetcode.com/u/Mahendiran88/",
-    "tags": ["DSA", "Queue", "Monotonic Stack", "LeetCode-503 & 735"]
+    "tags": ["DSA", "Stack", "Monotonic Stack"]
   },
   {
     "date": "2025-10-02",
@@ -53,7 +53,7 @@
     "title": "Advanced Linear Algebra and Dimensionality Reduction",
     "description": "Completed a comprehensive 2-day study of linear algebra, covering vectors, matrices, projections, and unit vectors. Delved into data science applications, including data preprocessing (normalization, standardization), covariance matrices, and dimensionality reduction techniques like PCA (with Eigenvalues/Eigenvectors) and t-SNE.",
     "link": "",
-    "tags": ["Linear Algebra", "Mathematics", "PCA", "t-SNE", "Dimensionality Reduction", "Data Science"]
+    "tags": ["Linear Algebra", "PCA", "Dimensionality Reduction"]
   },
   {
     "date": "2025-10-09",
@@ -81,6 +81,41 @@
     "title": "Continued Machine Learning: Days 11-16 of 100 Days of ML",
     "description": "Continued the ML course. Learned about Tensors (Day 11), setting up the environment with Anaconda/Jupyter (Day 12), End-to-End project flow (Day 13), framing a problem (Day 14), and handling data from CSV (Day 15) and JSON/SQL (Day 16).",
     "link": "",
-    "tags": ["Machine Learning", "Tensors", "Data Handling", "ML Project Lifecycle", "Anaconda"]
+    "tags": ["Machine Learning", "Data Handling", "100 Days of ML"]
+  },
+  {
+    "date": "2025-10-20",
+    "title": "Machine Learning: Exploratory Data Analysis (EDA)",
+    "description": "Continued the '100 Days of ML' course. Covered EDA using Univariate Analysis (Day 20) and Bivariate/Multivariate Analysis (Day 21).",
+    "link": "",
+    "tags": ["Machine Learning", "EDA", "100 Days of ML"]
+  },
+  {
+    "date": "2025-10-21",
+    "title": "Machine Learning: Pandas Profiling & Feature Engineering Intro",
+    "description": "Learned about automated EDA using Pandas Profiling (Day 22) and started on the fundamentals of Feature Engineering (Day 23).",
+    "link": "",
+    "tags": ["Machine Learning", "EDA", "Feature Engineering"]
+  },
+  {
+    "date": "2025-10-22",
+    "title": "Machine Learning: Feature Scaling",
+    "description": "Studied different feature scaling techniques, including Standardization (Day 24) and Normalization (MinMax, MaxAbs, Robust Scaling) (Day 25).",
+    "link": "",
+    "tags": ["Machine Learning", "Feature Scaling", "Feature Engineering"]
+  },
+  {
+    "date": "2025-10-23",
+    "title": "Machine Learning: Categorical Data Encoding",
+    "description": "Focused on encoding categorical data. Covered Ordinal Encoding, Label Encoding (Day 26), One-Hot Encoding (Day 27), and using ColumnTransformer for pipelines (Day 28).",
+    "link": "",
+    "tags": ["Machine Learning", "Encoding", "Feature Engineering"]
+  },
+  {
+    "date": "2F025-10-24",
+    "title": "Machine Learning: Data Transformation",
+    "description": "Learned about advanced data transformations using FunctionTransformer (Log, Reciprocal, Square Root) (Day 30) and PowerTransformer (Box-Cox, Yeo-Johnson) (Day 31).",
+    "link": "",
+    "tags": ["Machine Learning", "Data Transformation", "Feature Engineering"]
   }
 ]
