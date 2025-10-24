@@ -112,7 +112,7 @@
     "tags": ["Machine Learning", "Encoding", "Feature Engineering"]
   },
   {
-    "date": "2F025-10-24",
+    "date": "2025-10-24",
     "title": "Machine Learning: Data Transformation",
     "description": "Learned about advanced data transformations using FunctionTransformer (Log, Reciprocal, Square Root) (Day 30) and PowerTransformer (Box-Cox, Yeo-Johnson) (Day 31).",
     "link": "",
