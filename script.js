@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Elements ---
   const menu = document.getElementById('primary-menu');
   const mobileToggle = document.getElementById('mobile-nav-toggle');
-  const themeToggle = document.getElementById('theme-toggle'); // might be null
+  const themeToggle = document.getElementById('theme-toggle');
   const yearEl = document.getElementById('year');
   const navLinks = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('main > .section');
@@ -68,8 +68,25 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+  
   // Show default section on initial load
   showSection('about');
+
+  // --- Project Card Click Handlers ---
+  const projectCards = document.querySelectorAll('.project-card');
+  projectCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const githubUrl = card.getAttribute('data-github');
+      if (githubUrl && githubUrl !== '#') {
+        window.open(githubUrl, '_blank', 'noopener,noreferrer');
+      }
+    });
+    
+    // Add pointer cursor style
+    if (card.getAttribute('data-github') && card.getAttribute('data-github') !== '#') {
+      card.style.cursor = 'pointer';
+    }
+  });
 
   // --- Dynamic Content Loading ---
   function loadJsonToContainer(url, containerId, renderItem) {
@@ -101,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
     container.appendChild(article);
   });
   
-  // MODIFIED: Activity rendering now includes tags
+  // Activity rendering with tags
   loadJsonToContainer('activity.json', 'activity-list', (container, item) => {
     const div = document.createElement('div');
     div.className = 'card';
@@ -132,7 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Construct the card's inner HTML to restore the old layout without overlap
     div.innerHTML = `
       <div class="card-top-line">
         <p class="muted activity-date"><strong>${date}</strong></p>
@@ -150,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Contact Form / Copy Email ---
   const copyBtn = document.getElementById('contact-copy');
-  const myEmail = 'mahendiran.a@email.com'; // ** IMPORTANT: Change this email **
+  const myEmail = 'mahendiran.a@email.com';
 
   if (copyBtn) {
     copyBtn.addEventListener('click', () => {
